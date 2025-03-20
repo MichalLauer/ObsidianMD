@@ -1,5 +1,5 @@
 ---
-téma: ML
+téma: Bayes
 cssclasses:
   - numbering
 ---
