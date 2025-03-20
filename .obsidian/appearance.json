@@ -1,0 +1,9 @@
+{
+  "theme": "obsidian",
+  "showViewHeader": false,
+  "showRibbon": true,
+  "cssTheme": "Things",
+  "enabledCssSnippets": [
+    "classes"
+  ]
+}
