@@ -1,0 +1,60 @@
+.numbering {
+    counter-reset: hc1;
+}
+
+.numbering .cm-fold-indicator {
+    margin-left: 15px;
+}
+
+/* Heading 1 */
+.numbering .HyperMD-header-1::before {
+    content: counter(hc1) ". ";
+}
+.numbering .HyperMD-header-1 {
+    counter-increment: hc1;
+    counter-reset: hc2;
+}
+
+/* Heading 2 */
+.numbering .HyperMD-header-2::before {
+    content: counter(hc1) "." counter(hc2) " ";
+}
+.numbering .HyperMD-header-2 {
+    counter-increment: hc2;
+    counter-reset: hc3;
+}
+
+/* Heading 3 */
+.numbering .HyperMD-header-3::before {
+    content: counter(hc1) "." counter(hc2) "." counter(hc3) " ";
+}
+.numbering .HyperMD-header-3 {
+    counter-increment: hc3;
+    counter-reset: hc4;
+}
+
+/* Heading 4 */
+.numbering .HyperMD-header-4::before {
+    content: counter(hc1) "." counter(hc2) "." counter(hc3) "." counter(hc4) " ";
+}
+.numbering .HyperMD-header-4 {
+    counter-increment: hc4;
+    counter-reset: hc5;
+}
+
+/* Heading 5 */
+.numbering .HyperMD-header-5::before {
+    content: counter(hc1) "." counter(hc2) "." counter(hc3) "." counter(hc4) "." counter(hc5) " ";
+}
+.numbering .HyperMD-header-5 {
+    counter-increment: hc5;
+    counter-reset: hc6;
+}
+
+/* Heading 6 */
+.numbering .HyperMD-header-6::before {
+    content: counter(hc1) "." counter(hc2) "." counter(hc3) "." counter(hc4) "." counter(hc5) "." counter(hc6) " ";
+}
+.numbering .HyperMD-header-6 {
+    counter-increment: hc6;
+}
