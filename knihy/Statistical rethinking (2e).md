@@ -117,4 +117,42 @@ Když se predikují nová data, musí se použít jak nejistota o náhodných pa
 - Lineární regrese hraje ve statistice tu stejnou roli, jako geocentrický model. Lineární vztah je málokdy v reálném světě správný, avšak lze ho použít k velmi dobré aproximaci.
 ## Why normal distributions are normal
 - Tady je pěkně zobrazeno normální rozdělení a CLT, kde je nejprve zobrazen vývoj zleva doprava. Tam je pěkně vidět to, jak se ten proces do začátku rozvine do normálního rozdělení.
-- 
+
+> [!important] Centrální limitní věta - součet
+> *,,Any process that adds together random values from the same distribution (with finite variance) converges to a normal"* 
+```r
+x <- replicate( 5000 , sum( rpois(5000, 2) ))
+plot(density(x))
+```
+
+
+> [!important] Centrální limitní věta - součin
+> *,,Products generate normal distributions on the log scale. That is because $\log(\prod f(\cdot) )$ is just $\sum \log(f(\cdot))$"*
+```r
+x <- replicate( 5000 , log(prod(1 + runif(30, 0, 0.5))) )
+plot(density(x))
+```
+
+- V reálném světě je normální rozdělení všude, protože většina procesů je jen součet nějakých čísel. **Není to ale univerzální pravidlo.**
+- Rozdělení, které popisují reálný svět, patří do skupiny [[Rodina exponenciálních rozdělení]]
+## A language for describing models
+## Gaussian model of height
+- Apriorní rozdělení musí být založeno pouze na informacích, které neplynou z nasbíraných dat.
+- Gausovské apriorní rozdělení a likelihood tvoří znovu normální rozdělení; to však neplatí u rozptylu.
+- 89% interval je PRIME!!!
+- Změna apriorního rozdělení pro $\mu$ ovlivní posteriorní rozdělení pro $\sigma^2$. Pokud je apriorní rozdělení moc jisté, a data tomu neodpovídají, rozptyl se musí zákonitě zvětšit.
+## Linear prediction
+- Ve chvíli, kde se používá lineární regrese, tak $\mu$ nemá rozdělení ($\mu\sim$), ale je to nějaká lineární transformace ostatních parametrů a dat ($\mu=$).
+- Když data v regresi normalizuju ($x_j - \bar x_j$), tak se **interpretace koeficientu nemění, ani koeficient samotný se nemění. Mění se interpretace interceptu**.
+- Normované normální rozdělení pro $\beta$ je v případě centrován přirozené, protože dává stejnou váhu jak na pozitivní, tak negativní asociaci. Zároveň vychází z nuly, což znamená, že žádná asociace není.
+- Tabulková reprezentace (marginálních) posteriorních rozdělení je vhodná jen při málo parametrech.
+- Při predikci není použita pouze ta nejvíce pravděpodobná přímka, ale i ostatní. Tím s propaguje nejistota do predikce a inference.
+- Výsledky jsou vždy implicitně podmíněné na vybraném modelu.
+- Pro generování intervalů kolem střední hodnoty stačí použít posteriorní rozdělení střední hodnoty.
+- Pro generování intervalů kolem predikce je nutné zapojit i odhad pro $\sigma^2$.
+## Curves from lines
+- Určení apriorních rozdělení u polynomiálních koeficientů není jednoduché - dost k tomu pomáhá apriorní predikce.
+- Standardizace je při odhadu důležitá kvůli stabilitě.
+- Interpretace $\alpha$ není tak jednoduchá, protože polynomiál to ničí.
+- Lineární regrese - lineární v parametrech.
+# The Many Variables & The Spurious Waffles
